@@ -102,7 +102,7 @@ elif page == "🧪 Risk Prediction":
     st.markdown("---")
     st.subheader("📥 Download Proxy Dataset")
     st.markdown("Use the button below to access the proxy dataset used for model training and interpretation.")
-    with open("model\environmental_risk_data.csv", "rb") as file:
+    with open("model/environmental_risk_data.csv", "rb") as file:
         st.download_button("📄 Download CSV", data=file, file_name="environmental_risk_data.csv", mime="text/csv")        
 elif page == "📊 Visualizations":
     st.title("📊 Risk Signal Analysis")
@@ -235,7 +235,7 @@ elif page == "🌍 Landscape Change":
 
     col1, col2 = st.columns([2, 1])
     with col1:
-        st.image("remote_sensing\LULC_Transition_Cleaned_2013_2023.tif", caption="LULC Transitions (2013–2023)", use_container_width=True)
+        st.image("remote_sensing/LULC_Transition_Cleaned_2013_2023.tif", caption="LULC Transitions (2013–2023)", use_container_width=True)
     with col2:
         st.markdown("### 🔄 Transition Legend")
         st.markdown("""
