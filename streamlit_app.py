@@ -26,30 +26,55 @@ st.markdown(
 
 page = st.sidebar.radio("Choose a Section", [
     "📌 About",
+    "🌍 Landscape Change",
     "🧪 Risk Prediction",
     "📊 Visualizations",
     "🧠 Insights",
-    "🌍 Landscape Change",
     "📤 Policy Summary"
 ])
 if page == "📌 About":
     st.title("⚛️ The Price of Power")
+    with st.expander("🧾 Project Summary (Click to Expand)", expanded=False):
+        st.markdown("""
+        This platform presents a two-layered strategy for **environmental risk assessment**:
+
+        **🛰️ Remote Sensing Insights (2013–2023):**
+        - 🌿 **NDVI Change Map**: Highlights vegetation gain/loss using Landsat imagery
+        - 🗺️ **LULC Classification**: Tracks land use categories (forest, urban, barren, water)
+        - 🔁 **Transition Map**: Shows land shifts like *Forest → Urban* 
+        - 🌃 **VIIRS Nightlights**: Detects urban expansion via brightness growth
+
+        **🤖 Machine Learning Prediction:**
+        - A **decision tree model** predicts High/Low Risk zones using:
+          - Forest loss
+          - Illness count
+          - Distance to mines
+        - Built-in visual analytics explain model logic and confidence
+
+        **🧠 Outcome:**
+        - Combines **satellite-based evidence** with **AI predictions** for a holistic risk monitoring system
+        - Helps policymakers identify zones of concern and plan interventions
+        """)
+
     st.markdown("""
-    ### India's Nuclear Ambitions and the Cost to Marginalized Communities
-    In Jharkhand’s mineral belt, the Uranium Corporation of India Ltd. (UCIL) supports India’s nuclear energy drive. 
-    But its legacy has also included environmental degradation, displaced communities, and health crises.
+    ### Environmental Justice in a Resource-Rich Region
 
-    This project asks:
-    > Can a public-sector enterprise like UCIL transform into a model of **ethical mining**, balancing national interest with **environmental protection** and **social justice**?
+    In Jharkhand’s mineral-rich terrain, large-scale mining — including uranium extraction — has long served India’s national development goals.  
+    But this growth has also triggered **widespread deforestation**, **land degradation**, and **public health issues** for nearby marginalized communities.
 
+    This project explores whether **technological tools** can be used to shift that trajectory — from unchecked extraction to **evidence-based, inclusive planning**.
+
+    ---
     **Track:** Tech-AI/ML Track  
     **Focus:** *Data-Driven Environmental Monitoring and Risk Prediction*
 
-    🛰️ We use **remote sensing**, **machine learning**, and **interactive dashboards** to:
-    - Detect landscape changes (forest loss, urban expansion, barren land)
-    - Predict risk zones based on illnesses and deforestation
-    - Support evidence-based policy planning
+    🛰️ Our system blends **remote sensing**, **machine learning**, and **interactive visualizations** to:
+    - Detect landscape changes over time (2013–2023)
+    - Predict high-risk zones based on health and ecological signals
+    - Support just and sustainable policy reform through open tools
     """)
+
+
 elif page == "🧪 Risk Prediction":
     st.title("🧪 Predict Environmental Risk Zones")
     st.markdown("""
@@ -132,7 +157,6 @@ elif page == "📊 Visualizations":
         st.markdown("""
         - Examines how many zones are **High Risk** vs **Low Risk**.
         - Imbalance matters: too few high-risk zones → model might miss them.
-        - Consider **recall/precision tradeoff** in deployment.
         """)
 
     st.markdown("---")
@@ -240,15 +264,17 @@ elif page == "🌍 Landscape Change":
         st.markdown("### 🔄 Transition Legend")
         st.markdown("""
         <div style='font-size:14px'>
-        <div><span style='color:#FF0000'>■</span> Forest → Urban (01)</div>
-        <div><span style='color:#D2B48C'>■</span> Forest → Barren (02)</div>
-        <div><span style='color:#0000FF'>■</span> Forest → Water (03)</div>
-        <div><span style='color:#800000'>■</span> Barren → Urban (21)</div>
-        <div><span style='color:#B22222'>■</span> Water → Urban (31)</div>
-        <div><span style='color:#808080'>■</span> Urban → Barren (12)</div>
-        <div><span style='color:#00FF00'>■</span> Urban → Forest (10)</div>
-        <div><span style='color:#228B22'>■</span> Water → Forest (30)</div>
-        </div>
+      <div><span style='color:#FF0000'>■</span> Forest → Urban (01)</div>
+      <div><span style='color:#D2B48C'>■</span> Forest → Barren (02)</div>
+      <div><span style='color:#1E90FF'>■</span> Forest → Water (03)</div>
+      <div><span style='color:#A52A2A'>■</span> Barren → Urban (21)</div>
+      <div><span style='color:#708090'>■</span> Water → Urban (31)</div>
+      <div><span style='color:#FFFF00'>■</span> Urban → Barren (12)</div>
+      <div><span style='color:#228B22'>■</span> Urban → Forest (10)</div>
+      <div><span style='color:#2E8B57'>■</span> Water → Forest (30)</div>
+      <div><span style='color:#000000'>■</span> No change (33)</div>
+
+        
         """, unsafe_allow_html=True)
 
     st.markdown("""
