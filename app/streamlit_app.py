@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import pickle
 from PIL import Image
-with open("tree_model.pkl", "rb") as f:
+with open("app/tree_model.pkl", "rb") as f:
     model = pickle.load(f)
 st.set_page_config(
     page_title="Environmental Risk Dashboard",
@@ -127,7 +127,7 @@ elif page == "🧪 Risk Prediction":
     st.markdown("---")
     st.subheader("📥 Download Proxy Dataset")
     st.markdown("Use the button below to access the proxy dataset used for model training and interpretation.")
-    with open("environmental_risk_data.csv", "rb") as file:
+    with open("Ml_model(decision_tree)\environmental_risk_data.csv", "rb") as file:
         st.download_button("📄 Download CSV", data=file, file_name="environmental_risk_data.csv", mime="text/csv")        
 elif page == "📊 Visualizations":
     st.title("📊 Risk Signal Analysis")
@@ -136,7 +136,7 @@ elif page == "📊 Visualizations":
     """)
 
     with st.expander("🔗 Correlation Heatmap", expanded=True):
-        st.image("heatmap.png", use_container_width=True)
+        st.image("assets\heatmap.png", use_container_width=True)
         st.markdown("""
         - Visualizes how features are **related** to each other.
         - 🔍 Helps identify redundancy or inverse signals.
@@ -144,7 +144,7 @@ elif page == "📊 Visualizations":
         """)
 
     with st.expander("🌟 Feature Importance", expanded=True):
-        st.image("feature_imp.png", use_container_width=True)
+        st.image("assets/feature_imp.png", use_container_width=True)
         st.markdown("""
         - Decision tree weights shown via bar graph.
         - 🌲 `Forest_Cover_Loss(ha)` and 🤒 `Reported_Illnesses` dominate predictions.
@@ -153,7 +153,7 @@ elif page == "📊 Visualizations":
         """)
 
     with st.expander("📈 Risk Zone Distribution", expanded=True):
-        st.image("distribution.png", use_container_width=True)
+        st.image("assets\distribution.png", use_container_width=True)
         st.markdown("""
         - Examines how many zones are **High Risk** vs **Low Risk**.
         - Imbalance matters: too few high-risk zones → model might miss them.
@@ -168,14 +168,14 @@ elif page == "🧠 Insights":
     """)
 
     st.subheader("📉 Confusion Matrix")
-    st.image("conf_matrix.png", use_container_width=True)
+    st.image("assets\conf_matrix.png", use_container_width=True)
     st.markdown("""
     - True Positives = High-risk zones correctly flagged
     - False Negatives = Risky zones missed (⚠️ critical to minimize)
     """)
 
     st.subheader("🌳 Decision Tree")
-    st.image("tree.png", use_container_width=True)
+    st.image("assets/tree.png", use_container_width=True)
     st.markdown("""
     - The tree’s top splits involve `Forest_Cover_Loss` and `Illnesses`
     - Thresholds reveal **decision rules** that are human-readable
@@ -201,7 +201,7 @@ elif page == "🌍 Landscape Change":
 
     col1, col2 = st.columns([2, 1])
     with col1:
-        st.image("remote_sensing/NDVI_Change_Map.tif", caption="NDVI Change Map (2013–2023)", use_container_width=True)
+        st.image("remote_sensing_images/NDVI_Change_Map.tif", caption="NDVI Change Map (2013–2023)", use_container_width=True)
     with col2:
         st.markdown("### 🌱 NDVI Legend")
         st.markdown("""
@@ -230,7 +230,7 @@ elif page == "🌍 Landscape Change":
         st.subheader(f"📍 LULC {year}")
         col1, col2 = st.columns([2, 1])
         with col1:
-            st.image(f"remote_sensing/LULC_{year}_colored.tif", caption=f"LULC {year}", use_container_width=True)
+            st.image(f"remote_sensing_images/LULC_{year}_colored.tif", caption=f"LULC {year}", use_container_width=True)
         with col2:
             st.markdown("### 📘 Legend")
             st.markdown("""
@@ -259,7 +259,7 @@ elif page == "🌍 Landscape Change":
 
     col1, col2 = st.columns([2, 1])
     with col1:
-        st.image("remote_sensing/LULC_Transition_Cleaned_2013_2023.tif", caption="LULC Transitions (2013–2023)", use_container_width=True)
+        st.image("remote_sensing_images/LULC_Transition_Cleaned_2013_2023.tif", caption="LULC Transitions (2013–2023)", use_container_width=True)
     with col2:
         st.markdown("### 🔄 Transition Legend")
         st.markdown("""
@@ -293,7 +293,7 @@ elif page == "🌍 Landscape Change":
 
     col1, col2 = st.columns([2, 1])
     with col1:
-        st.image("remote_sensing/Nightlight_Growth_2014_2023.tif", caption="Nightlight Growth (2014–2023)", use_container_width=True)
+        st.image("remote_sensing_images/Nightlight_Growth_2014_2023.tif", caption="Nightlight Growth (2014–2023)", use_container_width=True)
     with col2:
         st.markdown("### 💡 Nightlight Legend")
         st.markdown("""
