@@ -10,8 +10,7 @@
 ## 📄 Final Report
 You can read the full technical write-up and interpretation here:
 
-👉 [📘 Download Report (PDF)]([Final_report.pdf](https://github.com/NaiTi-K/CSI/blob/main/Final_report.pdf))
-
+👉 [📘 Download Report (PDF)]([Final_report.pdf])
 
 ## 📌 Project Overview
 
