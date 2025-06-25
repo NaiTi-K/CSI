@@ -10,7 +10,7 @@
 ## 📄 Final Report
 You can read the full technical write-up and interpretation here:
 
-👉 [📘 Download Report (PDF)](report/final_report.pdf)
+👉 [📘 Download Report (PDF)](Final_report.pdf)
 
 
 ## 📌 Project Overview
