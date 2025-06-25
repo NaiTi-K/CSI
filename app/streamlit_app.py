@@ -127,7 +127,7 @@ elif page == "🧪 Risk Prediction":
     st.markdown("---")
     st.subheader("📥 Download Proxy Dataset")
     st.markdown("Use the button below to access the proxy dataset used for model training and interpretation.")
-    with open("Ml_model(decision_tree)\environmental_risk_data.csv", "rb") as file:
+    with open("Ml_model(decision_tree)/environmental_risk_data.csv", "rb") as file:
         st.download_button("📄 Download CSV", data=file, file_name="environmental_risk_data.csv", mime="text/csv")        
 elif page == "📊 Visualizations":
     st.title("📊 Risk Signal Analysis")
@@ -136,7 +136,7 @@ elif page == "📊 Visualizations":
     """)
 
     with st.expander("🔗 Correlation Heatmap", expanded=True):
-        st.image("assets\heatmap.png", use_container_width=True)
+        st.image("assets/heatmap.png", use_container_width=True)
         st.markdown("""
         - Visualizes how features are **related** to each other.
         - 🔍 Helps identify redundancy or inverse signals.
@@ -153,7 +153,7 @@ elif page == "📊 Visualizations":
         """)
 
     with st.expander("📈 Risk Zone Distribution", expanded=True):
-        st.image("assets\distribution.png", use_container_width=True)
+        st.image("assets/distribution.png", use_container_width=True)
         st.markdown("""
         - Examines how many zones are **High Risk** vs **Low Risk**.
         - Imbalance matters: too few high-risk zones → model might miss them.
@@ -168,7 +168,7 @@ elif page == "🧠 Insights":
     """)
 
     st.subheader("📉 Confusion Matrix")
-    st.image("assets\conf_matrix.png", use_container_width=True)
+    st.image("assets/conf_matrix.png", use_container_width=True)
     st.markdown("""
     - True Positives = High-risk zones correctly flagged
     - False Negatives = Risky zones missed (⚠️ critical to minimize)
