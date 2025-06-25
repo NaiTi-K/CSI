@@ -33,6 +33,7 @@ You can read the full technical write-up and interpretation here:
 | `app/` | Streamlit app source code |
 | `assets/` | Model visualizations (heatmaps, tree, etc.) |
 | `remote_sensing_images/` | NDVI, LULC, Transition, and VIIRS maps |
+| `Final_report.pdf` | Final report |
 | `requirements.txt` | Python packages for running the app |
 
 ---
